@@ -5,7 +5,13 @@ function openModal() {
         return;
     }
 
-    const referenceNumber = document.getElementById('reference_number').value.trim();
+    const referenceInput = document.getElementById('reference_number');
+    if (!referenceInput) {
+        console.error("Reference input element not found!");
+        return;
+    }
+
+    const referenceNumber = referenceInput.value.trim();
     const modalBody = document.getElementById('modalBody');
     const downloadBtn = document.getElementById('downloadBtn');
 
@@ -25,11 +31,16 @@ function openModal() {
         downloadBtn.classList.add('hidden');
     }
 
-    // ব্যাকএন্ডে এপিআই রিকোয়েস্ট পাঠানো
-    fetch(`/api/track-booking?reference_number=${referenceNumber}`)
-        .then(response => response.json())
+    // ব্যাকএন্ডে এপিআই রিকোয়েস্ট পাঠানো (encodeURIComponent সহ)
+    fetch(`/api/track-booking?reference_number=${encodeURIComponent(referenceNumber)}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
         .then(data => {
-            if (data.success) {
+            if (data.success && data.booking) {
                 const booking = data.booking;
                 if (modalBody) {
                     modalBody.innerHTML = `
@@ -53,6 +64,7 @@ function openModal() {
             }
         })
         .catch(error => {
+            console.error('Fetch Error:', error);
             if (modalBody) {
                 modalBody.innerHTML = `<p class="text-red-500 text-center">Something went wrong!</p>`;
             }
