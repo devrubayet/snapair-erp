@@ -1,24 +1,25 @@
 <?php $__env->startSection('content'); ?>
     <!-- Modal -->
-    <div id="modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50">
-        <div class="bg-white rounded-2xl shadow-xl w-full max-w-md p-6">
+    <!-- মডাল ডিজাইন (Modal HTML) -->
+<div id="modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50 flex">
+    <div class="bg-white rounded-2xl shadow-xl w-full max-w-md p-6 relative">
+        
+        <!-- ডাইনামিক কন্টেন্ট দেখানোর জায়গা -->
+        <div id="modalBody">
+            <!-- জাভাস্ক্রিপ্ট দিয়ে ডেটা এখানে লোড হবে -->
+        </div>
 
-            <!-- ডাইনামিক কন্টেন্ট দেখানোর জায়গা -->
-            <div id="modalBody">
-                <!-- এখানে জাভাস্ক্রিপ্ট দিয়ে ডেটা বা নো ডেটা মেসেজ লোড হবে -->
-            </div>
-
-            <div class="flex justify-end gap-2 mt-6">
-                <button onclick="closeModal()" class="px-4 py-2 rounded bg-gray-200 hover:bg-gray-300 transition">
-                    Close
-                </button>
-                <a id="downloadBtn" href="#"
-                    class="px-4 py-2 rounded bg-indigo-600 text-white hidden hover:bg-indigo-700 transition">
-                    Download Visa PDF
-                </a>
-            </div>
+        <div class="flex justify-end gap-2 mt-6">
+            <button onclick="closeModal()" class="px-4 py-2 rounded bg-gray-200 hover:bg-gray-300 transition font-medium">
+                Close
+            </button>
+            <a id="downloadBtn" href="#"
+                class="px-4 py-2 rounded bg-indigo-600 text-white hidden hover:bg-indigo-700 transition font-medium">
+                Download Visa PDF
+            </a>
         </div>
     </div>
+</div>
     <!-- hero section -->
     <section class="relative bg-gray-100">
         <div class="herro-wrapper absolute top-0 left-0 right-0 bottom-0 max-h-85.5">
