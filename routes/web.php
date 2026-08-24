@@ -5,7 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\MoneyReceiptController;
 use App\Http\Controllers\StatementController;
-use App\Http\Controllers\TestimonialsController;
+
 use Illuminate\Support\Facades\Route;
 
 Route::get('/',[HomeController::class, 'index'])->name('home');

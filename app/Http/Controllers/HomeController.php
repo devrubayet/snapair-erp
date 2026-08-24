@@ -19,12 +19,12 @@ class HomeController extends Controller
 
 public function trackBooking(Request $request)
 {
-    // আপনার ফ্রন্টএন্ড ফর্মের ইনপুটের নাম 'reference_number' হলে এখানে ভ্যালিডেশন ঠিক করে দিন
+    
     $request->validate([
         'reference_number' => 'required|string',
     ]);
 
-    // ডাটাবেজ থেকে বুকিং রেফারেন্স দিয়ে ডাটা খোঁজা
+
     $booking = Booking::with(['client', 'vendor', 'transactions'])
         ->where('booking_reference', $request->reference_number)
         ->first();
@@ -41,7 +41,5 @@ public function trackBooking(Request $request)
         'message' => 'No booking found!'
     ]);
 }
-    function about(){
-        return view('frontend.pages.about');
-    }
+  
 }
