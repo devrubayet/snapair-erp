@@ -5,11 +5,11 @@
         </p>
         <label for="booking_reference" class="font-medium text-white">Reference Number</label>
 
-        <form class="flex flex-col md:flex-row gap-4" action="">
+        <form class="flex flex-col md:flex-row gap-4" onsubmit="return false;" action="">
             <!-- Input -->
             <div class="input-group flex flex-col w-full md:w-5/6">
-                <input class="w-full  border-red-950 bg-red-50   rounded-md px-4 py-3 outline-red-900" type="text" id="reference_number"
-                    name="reference_number" placeholder="Enter Your Reference Number" />
+                <input class="w-full border-red-950 bg-red-50 rounded-md px-4 py-3 outline-red-900" type="text"
+                    id="reference_number" name="reference_number" placeholder="Enter Your Reference Number" />
             </div>
 
             <!-- Button -->

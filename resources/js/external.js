@@ -26,7 +26,7 @@ function openModal() {
     }
 
     // ব্যাকএন্ডে রিকোয়েস্ট পাঠানো
-    fetch(`/api/track-booking?reference_number=${referenceNumber}`)
+    fetch(`/track-booking?reference_number=${referenceNumber}`)
         .then(response => response.json())
         .then(data => {
             if (data.success) {
