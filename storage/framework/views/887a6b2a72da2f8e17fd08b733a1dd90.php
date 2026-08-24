@@ -1,8 +1,24 @@
-@extends('layouts.frontend.layouts')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
     <!-- Modal -->
-    
+    <div id="modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50">
+        <div class="bg-white rounded-2xl shadow-xl w-full max-w-md p-6">
+
+            <!-- ডাইনামিক কন্টেন্ট দেখানোর জায়গা -->
+            <div id="modalBody">
+                <!-- এখানে জাভাস্ক্রিপ্ট দিয়ে ডেটা বা নো ডেটা মেসেজ লোড হবে -->
+            </div>
+
+            <div class="flex justify-end gap-2 mt-6">
+                <button onclick="closeModal()" class="px-4 py-2 rounded bg-gray-200 hover:bg-gray-300 transition">
+                    Close
+                </button>
+                <a id="downloadBtn" href="#"
+                    class="px-4 py-2 rounded bg-indigo-600 text-white hidden hover:bg-indigo-700 transition">
+                    Download Visa PDF
+                </a>
+            </div>
+        </div>
+    </div>
     <!-- hero section -->
     <section class="relative bg-gray-100">
         <div class="herro-wrapper absolute top-0 left-0 right-0 bottom-0 max-h-85.5">
@@ -23,7 +39,28 @@
                     <p>Find Flights, Hotels, Visa & Holidays</p>
                 </div>
             </div>
-            <x-frontend.visatrack-card />
+            <?php if (isset($component)) { $__componentOriginalea4d32330b6cb27f7f1334c40a77fbda = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginalea4d32330b6cb27f7f1334c40a77fbda = $attributes; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.frontend.visatrack-card','data' => []] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component->withName('frontend.visatrack-card'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
+<?php $attributes = $attributes->except(\Illuminate\View\AnonymousComponent::ignoredParameterNames()); ?>
+<?php endif; ?>
+<?php $component->withAttributes([]); ?>
+<?php \Livewire\Features\SupportCompiledWireKeys\SupportCompiledWireKeys::processComponentKey($component); ?>
+
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginalea4d32330b6cb27f7f1334c40a77fbda)): ?>
+<?php $attributes = $__attributesOriginalea4d32330b6cb27f7f1334c40a77fbda; ?>
+<?php unset($__attributesOriginalea4d32330b6cb27f7f1334c40a77fbda); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginalea4d32330b6cb27f7f1334c40a77fbda)): ?>
+<?php $component = $__componentOriginalea4d32330b6cb27f7f1334c40a77fbda; ?>
+<?php unset($__componentOriginalea4d32330b6cb27f7f1334c40a77fbda); ?>
+<?php endif; ?>
         </div>
     </section>
 
@@ -35,12 +72,12 @@
             <div class="crousal m-2 p-4 text-white">
                 <div class="swiper mySwiper w-full">
                     <div class="swiper-wrapper">
-                        @foreach ($offers as $offer)
+                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php \Livewire\Features\SupportCompiledWireKeys\SupportCompiledWireKeys::openLoop(); ?><?php endif; ?><?php $__currentLoopData = $offers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $offer): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><?php \Livewire\Features\SupportCompiledWireKeys\SupportCompiledWireKeys::startLoopIteration(); ?><?php endif; ?>
                             <div class="swiper-slide h-[168px] w-[357.333px]">
                                 <a class="group block" href="#" target="_blank">
                                     <div class="relative h-[168px] rounded-lg overflow-hidden">
                                         <!-- Background Image -->
-                                        <img class="w-full h-full object-cover" src="{{ asset('storage/' . $offer->img) }}"
+                                        <img class="w-full h-full object-cover" src="<?php echo e(asset('storage/' . $offer->img)); ?>"
                                             alt="" />
 
                                         <!-- Indigo Slide-up Overlay -->
@@ -107,9 +144,10 @@
                                             </div>
 
                                             <!-- DETAILS -->
-                                            <h4 class="font-bold text-xl title">{{ $offer->title }}</h4>
+                                            <h4 class="font-bold text-xl title"><?php echo e($offer->title); ?></h4>
                                             <p class="text-sm mt-1 desc">
-                                                {{ $offer->short_desc }}
+                                                <?php echo e($offer->short_desc); ?>
+
                                             </p>
                                             <div class="text-xs mt-2 opacity-80 underline">
                                                 View Details
@@ -118,7 +156,7 @@
                                     </div>
                                 </a>
                             </div>
-                        @endforeach
+                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><?php \Livewire\Features\SupportCompiledWireKeys\SupportCompiledWireKeys::endLoop(); ?><?php endif; ?><?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php \Livewire\Features\SupportCompiledWireKeys\SupportCompiledWireKeys::closeLoop(); ?><?php endif; ?>
 
 
                     </div>
@@ -150,28 +188,29 @@
             <!-- GRID -->
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
                 <!-- CARD -->
-                @foreach ($airlines as $airline)
+                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php \Livewire\Features\SupportCompiledWireKeys\SupportCompiledWireKeys::openLoop(); ?><?php endif; ?><?php $__currentLoopData = $airlines; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $airline): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><?php \Livewire\Features\SupportCompiledWireKeys\SupportCompiledWireKeys::startLoopIteration(); ?><?php endif; ?>
                     <div
                         class="card group bg-red-200 hover:bg-white rounded-lg border-x-2 shadow border-red-900 px-4 py-2 flex items-center gap-2 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer">
 
-                        @if ($airline->image)
+                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($airline->image): ?>
                             <img class="w-5 h-5 sm:w-8 sm:h-8 object-cover rounded-full"
-                                src="{{ asset('storage/' . $airline->image) }}" alt="{{ $airline->name }}" />
-                        @else
+                                src="<?php echo e(asset('storage/' . $airline->image)); ?>" alt="<?php echo e($airline->name); ?>" />
+                        <?php else: ?>
                             <!-- যদি ছবি না থাকে তবে ডিফল্ট কোনো আইকন বা placeholder দেখাতে পারেন -->
                             <div
                                 class="w-5 h-5 sm:w-8 sm:h-8 bg-gray-300 rounded-full flex items-center justify-center text-xs">
                                 ✈️</div>
-                        @endif
+                        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
 
                         <h2 class="text-xs md:text-sm font-thin flex-1">
-                            {{ $airline->name }}
+                            <?php echo e($airline->name); ?>
+
                         </h2>
 
                         <i
                             class="fa-solid fa-greater-than text-red-300 transition-all duration-300 group-hover:translate-x-2 group-hover:text-red-400 text-sm"></i>
                     </div>
-                @endforeach
+                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><?php \Livewire\Features\SupportCompiledWireKeys\SupportCompiledWireKeys::endLoop(); ?><?php endif; ?><?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php \Livewire\Features\SupportCompiledWireKeys\SupportCompiledWireKeys::closeLoop(); ?><?php endif; ?>
             </div>
 
 
@@ -181,7 +220,7 @@
     </section>
 
     <!-- testimonial -->
-    @if (isset($testimonials) && count($testimonials) > 0)
+    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(isset($testimonials) && count($testimonials) > 0): ?>
         <section class="py-10">
             <div class="max-w-7xl mx-auto">
                 <h2 class="text-left max-w-fit border-l-4 bg-red-100 p-2 text-3xl text-red-600 font-bold">What Our Clients
@@ -189,9 +228,30 @@
                 <div class="crousal my-6 p-10">
                     <div class="swiper testimonialSwiper  w-full">
                         <div class="swiper-wrapper">
-                            @foreach ($testimonials as $testimonial)
-                                <x-frontend.testimonial-card :testimonial="$testimonial" />
-                            @endforeach
+                            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php \Livewire\Features\SupportCompiledWireKeys\SupportCompiledWireKeys::openLoop(); ?><?php endif; ?><?php $__currentLoopData = $testimonials; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $testimonial): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><?php \Livewire\Features\SupportCompiledWireKeys\SupportCompiledWireKeys::startLoopIteration(); ?><?php endif; ?>
+                                <?php if (isset($component)) { $__componentOriginal7b9395bc22e93e7968c9eee0c3477c9b = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginal7b9395bc22e93e7968c9eee0c3477c9b = $attributes; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.frontend.testimonial-card','data' => ['testimonial' => $testimonial]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component->withName('frontend.testimonial-card'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
+<?php $attributes = $attributes->except(\Illuminate\View\AnonymousComponent::ignoredParameterNames()); ?>
+<?php endif; ?>
+<?php $component->withAttributes(['testimonial' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($testimonial)]); ?>
+<?php \Livewire\Features\SupportCompiledWireKeys\SupportCompiledWireKeys::processComponentKey($component); ?>
+
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginal7b9395bc22e93e7968c9eee0c3477c9b)): ?>
+<?php $attributes = $__attributesOriginal7b9395bc22e93e7968c9eee0c3477c9b; ?>
+<?php unset($__attributesOriginal7b9395bc22e93e7968c9eee0c3477c9b); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginal7b9395bc22e93e7968c9eee0c3477c9b)): ?>
+<?php $component = $__componentOriginal7b9395bc22e93e7968c9eee0c3477c9b; ?>
+<?php unset($__componentOriginal7b9395bc22e93e7968c9eee0c3477c9b); ?>
+<?php endif; ?>
+                            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><?php \Livewire\Features\SupportCompiledWireKeys\SupportCompiledWireKeys::endLoop(); ?><?php endif; ?><?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php \Livewire\Features\SupportCompiledWireKeys\SupportCompiledWireKeys::closeLoop(); ?><?php endif; ?>
 
 
 
@@ -202,8 +262,10 @@
                 </div>
             </div>
         </section>
-    @endif
+    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
 
 
     <!-- fotter -->
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.frontend.layouts', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\Users\rubay\Desktop\travel-erp\travel-erp\resources\views/welcome.blade.php ENDPATH**/ ?>
