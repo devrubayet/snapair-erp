@@ -18,8 +18,8 @@
             </svg>
         </button>
 
-        <!-- Navbar Links (Ultra-Smooth Animation Setup) -->
-        <div class="w-full max-h-0 opacity-0 -translate-y-2 overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] md:max-h-none md:opacity-100 md:translate-y-0 md:overflow-visible md:w-auto" id="navbar-default">
+        <!-- Navbar Links (Fixed Desktop Visibility) -->
+        <div class="w-full max-h-0 opacity-0 -translate-y-2 overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] md:w-auto md:max-h-none md:opacity-100 md:translate-y-0 md:overflow-visible" id="navbar-default">
             <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-red-500 rounded-lg bg-red-700 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-transparent">
                 <li>
                     <a href="{{ route('home') }}"

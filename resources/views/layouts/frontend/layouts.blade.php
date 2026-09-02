@@ -49,44 +49,43 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
     <!-- Mobile Navbar Toggle Script -->
-    <!-- Mobile Navbar Toggle Script -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const menuBtn = document.getElementById('menu-btn');
-            const navbar = document.getElementById('navbar-default');
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuBtn = document.getElementById('menu-btn');
+        const navbar = document.getElementById('navbar-default');
+        
+        const topLine = document.getElementById('top-line');
+        const middleLine = document.getElementById('middle-line');
+        const bottomLine = document.getElementById('bottom-line');
 
-            const topLine = document.getElementById('top-line');
-            const middleLine = document.getElementById('middle-line');
-            const bottomLine = document.getElementById('bottom-line');
+        if (menuBtn && navbar) {
+            menuBtn.addEventListener('click', () => {
+                const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
+                menuBtn.setAttribute('aria-expanded', !isExpanded);
 
-            if (menuBtn && navbar) {
-                menuBtn.addEventListener('click', () => {
-                    const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
-                    menuBtn.setAttribute('aria-expanded', !isExpanded);
+                if (isExpanded) {
+                    // Smooth Close
+                    navbar.classList.remove('max-h-96', 'opacity-100', 'translate-y-0');
+                    navbar.classList.add('max-h-0', 'opacity-0', '-translate-y-2');
 
-                    if (isExpanded) {
-                        // 1. Smooth Close (Height 0 + Fade Out + Shift Up)
-                        navbar.classList.remove('max-h-96', 'opacity-100', 'translate-y-0');
-                        navbar.classList.add('max-h-0', 'opacity-0', '-translate-y-2');
+                    // Icon back to Hamburger
+                    topLine.setAttribute('d', 'M4 6h16');
+                    middleLine.classList.remove('opacity-0');
+                    bottomLine.setAttribute('d', 'M4 18h16');
+                } else {
+                    // Smooth Open
+                    navbar.classList.remove('max-h-0', 'opacity-0', '-translate-y-2');
+                    navbar.classList.add('max-h-96', 'opacity-100', 'translate-y-0');
 
-                        // 2. Icon back to Hamburger
-                        topLine.setAttribute('d', 'M4 6h16');
-                        middleLine.classList.remove('opacity-0');
-                        bottomLine.setAttribute('d', 'M4 18h16');
-                    } else {
-                        // 1. Smooth Open (Slide Down + Fade In)
-                        navbar.classList.remove('max-h-0', 'opacity-0', '-translate-y-2');
-                        navbar.classList.add('max-h-96', 'opacity-100', 'translate-y-0');
-
-                        // 2. Icon to Cross (✕)
-                        topLine.setAttribute('d', 'M6 18L18 6');
-                        middleLine.classList.add('opacity-0');
-                        bottomLine.setAttribute('d', 'M6 6l12 12');
-                    }
-                });
-            }
-        });
-    </script>
+                    // Icon to Cross (✕)
+                    topLine.setAttribute('d', 'M6 18L18 6');
+                    middleLine.classList.add('opacity-0');
+                    bottomLine.setAttribute('d', 'M6 6l12 12');
+                }
+            });
+        }
+    });
+</script>
 </body>
 
 </html>
