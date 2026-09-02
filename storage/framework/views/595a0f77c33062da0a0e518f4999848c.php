@@ -62,8 +62,7 @@
                 <h3 class="text-red-600 font-semibold mb-4 uppercase tracking-wide">SnapAirBD</h3>
                 <p class="mb-4 text-gray-600">Book and manage flights on the go.</p>
                 <div class="space-y-3">
-                    <img src="<?php echo e(asset('img/add.png')); ?>" class="h-10 cursor-pointer" alt="App Store">
-                    <img src="<?php echo e(asset('img/add.png')); ?>" class="h-10 cursor-pointer" alt="Google Play">
+                    
                 </div>
             </div>
 
