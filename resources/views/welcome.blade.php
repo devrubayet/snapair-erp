@@ -147,8 +147,8 @@
                 </div>
 
                 <div class="offer-add mt-8 mx-3 p-7">
-                    <div class="ads-img w-full h-32 rounded-md overflow-hidden">
-                        {{-- <img class="w-full h-full object-f" src="img/showcase.png" alt="" /> --}}
+                    <div class="ads-img w-full h-full rounded-md overflow-hidden">
+                        <img class="w-full h-full object-f" src="{{ asset('img/showcasebg.png') }}" alt="" />
                     </div>
                 </div>
             </div>
