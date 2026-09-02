@@ -58,7 +58,9 @@
 <?php endif; ?>
 
     <!-- Main Content Yield -->
-    <?php echo $__env->yieldContent('content'); ?>
+    <main class="min-h-screen">
+        <?php echo $__env->yieldContent('content'); ?>
+    </main>
 
     <!-- Footer Component -->
     <?php if (isset($component)) { $__componentOriginal8ab008c7fdbb32d76d8e812a6af72cc5 = $component; } ?>

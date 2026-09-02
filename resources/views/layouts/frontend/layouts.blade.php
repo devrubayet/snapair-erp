@@ -37,7 +37,9 @@
     <x-frontend.navbar />
 
     <!-- Main Content Yield -->
-    @yield('content')
+    <main class="min-h-screen">
+        @yield('content')
+    </main>
 
     <!-- Footer Component -->
     <x-frontend.footer />
