@@ -69,7 +69,7 @@
      <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(isset($offers) && count($offers) > 0): ?>
         <section class="exlusive-offer bg-gray-100 py-20">
             <div class="wrapper max-w-7xl mx-auto p-4">
-                <h2 class="text-xl max-w-fit border-l-4 bg-red-100 md:text-3xl text-red-500 font-bold p-2">Exclusive Offer</h2>
+                <h2 class="text-xl max-w-full border-l-4 bg-red-100 md:text-3xl text-red-500 font-bold p-2">Exclusive Offer</h2>
 
                 <div class="crousal m-2 p-4 text-white">
                     <div class="swiper mySwiper w-full">
@@ -178,7 +178,7 @@
     <!-- airlines list -->
     <section class="airlines bg-red-100 py-24">
         <div class="max-w-7xl mx-auto px-4">
-            <h2 class=" max-w-fit text-left text-4xl border-l-4 p-2 bg-red-50 text-red-600 font-semibold mb-4">
+            <h2 class=" max-w-full text-left text-4xl border-l-4 p-2 bg-red-50 text-red-600 font-semibold mb-4">
                 Top Airlines Are With Us
             </h2>
 
@@ -226,7 +226,7 @@
     <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(isset($testimonials) && count($testimonials) > 0): ?>
         <section class="py-10">
             <div class="max-w-7xl mx-auto">
-                <h2 class="text-left max-w-fit border-l-4 bg-red-100 p-2 text-3xl text-red-600 font-bold">What Our Clients
+                <h2 class="text-left max-w-full border-l-4 bg-red-100 p-2 text-3xl text-red-600 font-bold">What Our Clients
                     Say's</h2>
                 <div class="crousal my-6 p-10">
                     <div class="swiper testimonialSwiper  w-full">
