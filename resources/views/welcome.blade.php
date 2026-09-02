@@ -57,7 +57,7 @@
                         <div class="swiper-wrapper">
                             @foreach ($offers as $offer)
                                 <div class="swiper-slide h-[168px] w-[357.333px]">
-                                    <a class="group block" href="{{ route('offers.show', $offer->id) }}" target="_blank">
+                                    <a class="group block" href="{{ route('offers.show', $offer->id) }}" >
                                         <div class="relative h-[168px] rounded-lg overflow-hidden">
                                             <!-- Background Image -->
                                             <img class="w-full h-full object-cover" src="{{ asset('storage/' . $offer->img) }}"

@@ -76,7 +76,7 @@
                         <div class="swiper-wrapper">
                             <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php \Livewire\Features\SupportCompiledWireKeys\SupportCompiledWireKeys::openLoop(); ?><?php endif; ?><?php $__currentLoopData = $offers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $offer): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><?php \Livewire\Features\SupportCompiledWireKeys\SupportCompiledWireKeys::startLoopIteration(); ?><?php endif; ?>
                                 <div class="swiper-slide h-[168px] w-[357.333px]">
-                                    <a class="group block" href="<?php echo e(route('offers.show', $offer->id)); ?>" target="_blank">
+                                    <a class="group block" href="<?php echo e(route('offers.show', $offer->id)); ?>" >
                                         <div class="relative h-[168px] rounded-lg overflow-hidden">
                                             <!-- Background Image -->
                                             <img class="w-full h-full object-cover" src="<?php echo e(asset('storage/' . $offer->img)); ?>"
