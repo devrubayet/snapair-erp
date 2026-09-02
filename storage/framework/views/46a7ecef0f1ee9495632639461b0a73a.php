@@ -29,11 +29,18 @@
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+        <!-- Lottie Web Player CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
     <!-- Vite Assets -->
     <?php echo app('Illuminate\Foundation\Vite')(['resources/css/app.css', 'resources/js/app.js']); ?>
 </head>
 
 <body>
+    <!-- Preloader Container -->
+<div id="preloader" class="fixed inset-0 z-[9999] flex items-center justify-center bg-white transition-opacity duration-500 ease-out">
+    <!-- Lottie Container -->
+    <div id="lottie-container" class="w-80 h-80"></div>
+</div>
     <!-- Navbar Component -->
     <?php if (isset($component)) { $__componentOriginal52356ccfc399747292104bf67c421150 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal52356ccfc399747292104bf67c421150 = $attributes; } ?>
@@ -126,6 +133,30 @@
                 }
             });
         }
+    });
+</script>
+
+<script>
+    // Lottie Animation Initialize
+    const animation = lottie.loadAnimation({
+        container: document.getElementById('lottie-container'),
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: "<?php echo e(asset('img/Plane.json')); ?>" // public/images/preloader.json
+    });
+
+    // Page Load হওয়া মাত্র Preloader Fade-out করা
+    window.addEventListener('load', function() {
+        const preloader = document.getElementById('preloader');
+        
+        // Tailwind এর Opacity Class পরিবর্তন
+        preloader.classList.add('opacity-0', 'pointer-events-none');
+        
+        // Transition শেষ হলে DOM থেকে সরাতে চাইলে:
+        setTimeout(() => {
+            preloader.classList.add('hidden');
+        }, 500); 
     });
 </script>
 </body>
