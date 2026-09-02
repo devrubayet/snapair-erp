@@ -171,7 +171,7 @@
                 <!-- CARD -->
                 @foreach ($airlines as $airline)
                     <div
-                        class="card group bg-red-200 hover:bg-white rounded-lg border-x-2 shadow border-red-900 px-4 py-2 flex items-center gap-2 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer">
+                        class="card group bg-gray-100 hover:bg-white rounded-lg border-x-2 shadow border-red-900 px-4 py-2 flex items-center gap-2 transition-all duration-300 hover:shadow-lg hover:translate-x-1 hover:-translate-y-1 cursor-pointer">
 
                         @if ($airline->image)
                             <img class="w-5 h-5 sm:w-8 sm:h-8 object-cover rounded-full"
