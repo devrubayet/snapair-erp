@@ -15,8 +15,17 @@ class ExclusiveOfferController extends Controller
         $sliders = ExclusiveOffer::latest()->get();
         return view('admin.pages.all-slider', compact('sliders'));
     }
+    public function show($id)
+    {
+        // ID দিয়ে Offer খুঁজে বের করবে, না পেলে 404 Error দেখাবে
+        $offer = ExclusiveOffer::findOrFail($id);
 
-    function create(){
+        // Details view-তে $offer ডাটা পাঠানো হচ্ছে
+        return view('pages.offer_details', compact('offer'));
+    }
+
+    function create()
+    {
         return view('admin.components.create-ourservice');
     }
     // STORE
@@ -102,15 +111,15 @@ class ExclusiveOfferController extends Controller
         }
 
         $offer->delete();
-        
+
         return redirect()->back()->with('warning', "deleted successfull");
     }
-     public function toggle($id)
-{
-    $slider = ExclusiveOffer::findOrFail($id);
-    $slider->status = $slider->status === 'active' ? 'deactive' : 'active';
-    $slider->save();
+    public function toggle($id)
+    {
+        $slider = ExclusiveOffer::findOrFail($id);
+        $slider->status = $slider->status === 'active' ? 'deactive' : 'active';
+        $slider->save();
 
-    return back()->with('success', 'Slider status updated!');
-}
+        return back()->with('success', 'Slider status updated!');
+    }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AirlinesController;
+use App\Http\Controllers\ExclusiveOfferController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\MoneyReceiptController;
@@ -9,7 +10,8 @@ use App\Http\Controllers\StatementController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/',[HomeController::class, 'index'])->name('home');
-Route::get('/about',[HomeController::class, 'about'])->name('about');
+Route::get('/about',[HomeController::class, 'about'])->name('about');// Offer Details page
+Route::get('/offers/{id}', [ExclusiveOfferController::class, 'show'])->name('offers.show');
 
 
 
