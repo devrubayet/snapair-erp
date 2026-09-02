@@ -288,7 +288,7 @@
                         <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($settings?->whatsapp_number): ?>
                             <a href="https://wa.me/<?php echo e(preg_replace('/[^0-9]/', '', $settings->whatsapp_number)); ?>"
                                 target="_blank"
-                                class="rounded-xl border border-white/30 bg-green-800/10 px-5 py-3 text-sm font-semibold text-white backdrop-blur transition hover:bg-green-500/20">
+                                class="rounded-xl border border-white/30 bg-green-800/50 px-5 py-3 text-sm font-semibold text-white backdrop-blur transition hover:bg-green-500/80">
                                 WhatsApp
                             </a>
                         <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
