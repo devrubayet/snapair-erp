@@ -2,7 +2,7 @@
 
 @section('content')
     {{-- pt-28 বা pt-32 নেভবারের উচ্চতার সমান খালি জায়গা তৈরি করবে --}}
-    <section class="py-28 sm:py-32   px-4 sm:px-6">
+    <section class="py-10 sm:py-10   px-4 sm:px-6">
         <div class="max-w-4xl mx-auto">
             <!-- Go Back Button -->
             <a href="javascript:history.back()" class="inline-flex items-center text-sm text-slate-400 hover:text-white transition-colors mb-6 group">
