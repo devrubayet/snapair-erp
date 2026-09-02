@@ -14,6 +14,9 @@
                 <h3 class="text-red-600 font-semibold mb-4 uppercase tracking-wide">About Us</h3>
                 <ul class="space-y-2">
                     <li><a href="#" class="hover:text-red-600 transition-colors">About SnapAir</a></li>
+                    <li><a href="#" class="hover:text-red-700">Mobile Phone : {{ $settings->phone_primary ?? '' }}</a></li>
+                    <li><a href="#" class="hover:text-red-700">WhatsApp : {{ $settings->whatsapp_number ?? '' }}</a></li>
+                    <li><a href="#" class="hover:text-red-700">Phone : {{ $settings->phone_secondary ?? '' }}</a></li>
                     <li><a href="#" class="hover:text-red-700">About Address: {{ $settings->address_line ?? '' }}</a></li>
                     <li><span class="text-gray-600">Trade License No: <strong
                                 class="text-gray-800">{{ $settings?->trade_license ?? '' }}</strong></span></li>
