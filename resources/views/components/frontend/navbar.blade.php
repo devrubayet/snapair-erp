@@ -2,7 +2,7 @@
     <div class="max-w-6xl flex flex-wrap items-center justify-between mx-auto py-3 px-4">
         <!-- Logo -->
         <a href="{{ route('home') }}" class="flex items-center space-x-3 rtl:space-x-reverse">
-            <img src="{{ asset('storage/' . ($settings?->logo ?? '')) }}" class="h-10" alt="{{ $settings?->site_name ?? 'Logo' }}" />
+            <img src="{{ asset('storage/' . ($settings?->logo ?? '')) }}" class="h-16" alt="{{ $settings?->site_name ?? 'Logo' }}" />
         </a>
 
         <!-- Mobile Menu Button -->

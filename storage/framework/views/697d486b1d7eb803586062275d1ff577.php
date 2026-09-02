@@ -2,7 +2,7 @@
     <div class="max-w-6xl flex flex-wrap items-center justify-between mx-auto py-3 px-4">
         <!-- Logo -->
         <a href="<?php echo e(route('home')); ?>" class="flex items-center space-x-3 rtl:space-x-reverse">
-            <img src="<?php echo e(asset('storage/' . ($settings?->logo ?? ''))); ?>" class="h-10" alt="<?php echo e($settings?->site_name ?? 'Logo'); ?>" />
+            <img src="<?php echo e(asset('storage/' . ($settings?->logo ?? ''))); ?>" class="h-16" alt="<?php echo e($settings?->site_name ?? 'Logo'); ?>" />
         </a>
 
         <!-- Mobile Menu Button -->
