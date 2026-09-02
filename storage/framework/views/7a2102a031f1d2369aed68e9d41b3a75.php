@@ -244,59 +244,59 @@
                     </div>
 
                     <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($settings?->about_short): ?>
-                        <div class="text-sm leading-7 text-slate-400">
+                        <div class="text-sm leading-7 text-slate-100">
                             <?php echo $settings->short; ?>
 
-                </div>
-                <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                        </div>
+                    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
 
-                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($settings?->about_full): ?>
-                    <div class="text-sm leading-7 text-slate-400">
-                        <?php echo $settings->about_full; ?>
+                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($settings?->about_full): ?>
+                        <div class="text-sm leading-7 text-slate-100">
+                            <?php echo $settings->about_full; ?>
+
+                        </div>
+                    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+
+                </div>
+
+            </div>
+
+            
+            <div
+                class="mt-8 overflow-hidden rounded-2xl bg-gradient-to-r from-red-600 to-red-500 p-8 shadow-2xl shadow-red-600/20">
+                <div class="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
+
+                    <div>
+                        <h2 class="text-2xl font-bold text-white">
+                            Ready to plan your next journey?
+                        </h2>
+
+                        <p class="mt-2 text-sm text-red-100">
+                            Get in touch with our travel experts today.
+                        </p>
+                    </div>
+
+                    <div class="flex flex-wrap gap-3">
+
+                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($settings?->phone_primary): ?>
+                            <a href="tel:<?php echo e($settings->phone_primary); ?>"
+                                class="rounded-xl bg-white px-5 py-3 text-sm font-semibold text-red-600 transition hover:bg-red-50">
+                                Call Us
+                            </a>
+                        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+
+                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($settings?->whatsapp_number): ?>
+                            <a href="https://wa.me/<?php echo e(preg_replace('/[^0-9]/', '', $settings->whatsapp_number)); ?>"
+                                target="_blank"
+                                class="rounded-xl border border-white/30 bg-white/10 px-5 py-3 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/20">
+                                WhatsApp
+                            </a>
+                        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
 
                     </div>
-                <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
-
-            </div>
-
-        </div>
-
-        
-        <div
-            class="mt-8 overflow-hidden rounded-2xl bg-gradient-to-r from-red-600 to-red-500 p-8 shadow-2xl shadow-red-600/20">
-            <div class="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
-
-                <div>
-                    <h2 class="text-2xl font-bold text-white">
-                        Ready to plan your next journey?
-                    </h2>
-
-                    <p class="mt-2 text-sm text-red-100">
-                        Get in touch with our travel experts today.
-                    </p>
-                </div>
-
-                <div class="flex flex-wrap gap-3">
-
-                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($settings?->phone_primary): ?>
-                        <a href="tel:<?php echo e($settings->phone_primary); ?>"
-                            class="rounded-xl bg-white px-5 py-3 text-sm font-semibold text-red-600 transition hover:bg-red-50">
-                            Call Us
-                        </a>
-                    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
-
-                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($settings?->whatsapp_number): ?>
-                        <a href="https://wa.me/<?php echo e(preg_replace('/[^0-9]/', '', $settings->whatsapp_number)); ?>"
-                            target="_blank"
-                            class="rounded-xl border border-white/30 bg-white/10 px-5 py-3 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/20">
-                            WhatsApp
-                        </a>
-                    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
 
                 </div>
-
             </div>
-        </div>
 
         </div>
     </section>

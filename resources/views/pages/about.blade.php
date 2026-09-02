@@ -230,57 +230,57 @@
                     </div>
 
                     @if ($settings?->about_short)
-                        <div class="text-sm leading-7 text-slate-400">
+                        <div class="text-sm leading-7 text-slate-100">
                             {!! $settings->short !!}
-                </div>
-                @endif
+                        </div>
+                    @endif
 
-                @if ($settings?->about_full)
-                    <div class="text-sm leading-7 text-slate-400">
-                        {!! $settings->about_full !!}
+                    @if ($settings?->about_full)
+                        <div class="text-sm leading-7 text-slate-100">
+                            {!! $settings->about_full !!}
+                        </div>
+                    @endif
+
+                </div>
+
+            </div>
+
+            {{-- Bottom CTA --}}
+            <div
+                class="mt-8 overflow-hidden rounded-2xl bg-gradient-to-r from-red-600 to-red-500 p-8 shadow-2xl shadow-red-600/20">
+                <div class="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
+
+                    <div>
+                        <h2 class="text-2xl font-bold text-white">
+                            Ready to plan your next journey?
+                        </h2>
+
+                        <p class="mt-2 text-sm text-red-100">
+                            Get in touch with our travel experts today.
+                        </p>
                     </div>
-                @endif
 
-            </div>
+                    <div class="flex flex-wrap gap-3">
 
-        </div>
+                        @if ($settings?->phone_primary)
+                            <a href="tel:{{ $settings->phone_primary }}"
+                                class="rounded-xl bg-white px-5 py-3 text-sm font-semibold text-red-600 transition hover:bg-red-50">
+                                Call Us
+                            </a>
+                        @endif
 
-        {{-- Bottom CTA --}}
-        <div
-            class="mt-8 overflow-hidden rounded-2xl bg-gradient-to-r from-red-600 to-red-500 p-8 shadow-2xl shadow-red-600/20">
-            <div class="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
+                        @if ($settings?->whatsapp_number)
+                            <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $settings->whatsapp_number) }}"
+                                target="_blank"
+                                class="rounded-xl border border-white/30 bg-white/10 px-5 py-3 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/20">
+                                WhatsApp
+                            </a>
+                        @endif
 
-                <div>
-                    <h2 class="text-2xl font-bold text-white">
-                        Ready to plan your next journey?
-                    </h2>
-
-                    <p class="mt-2 text-sm text-red-100">
-                        Get in touch with our travel experts today.
-                    </p>
-                </div>
-
-                <div class="flex flex-wrap gap-3">
-
-                    @if ($settings?->phone_primary)
-                        <a href="tel:{{ $settings->phone_primary }}"
-                            class="rounded-xl bg-white px-5 py-3 text-sm font-semibold text-red-600 transition hover:bg-red-50">
-                            Call Us
-                        </a>
-                    @endif
-
-                    @if ($settings?->whatsapp_number)
-                        <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $settings->whatsapp_number) }}"
-                            target="_blank"
-                            class="rounded-xl border border-white/30 bg-white/10 px-5 py-3 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/20">
-                            WhatsApp
-                        </a>
-                    @endif
+                    </div>
 
                 </div>
-
             </div>
-        </div>
 
         </div>
     </section>
