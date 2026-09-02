@@ -33,13 +33,13 @@
                         class="block py-2 px-3 rounded md:p-0 {{ request()->routeIs('about') ? 'text-white font-bold' : 'text-gray-200 hover:text-white' }}">About</a>
                 </li>
                 <li>
-                    <a href="#" class="block py-2 px-3 rounded md:p-0 text-gray-200 hover:text-white">Services</a>
+                    <a href="{{ route('services') }}" class="block py-2 px-3 rounded md:p-0 {{ request()->routeIs('services') ? 'text-white font-bold' : 'text-gray-200 hover:text-white' }} text-gray-200 hover:text-white">Services</a>
                 </li>
                 <li>
-                    <a href="#" class="block py-2 px-3 rounded md:p-0 text-gray-200 hover:text-white">Pricing</a>
+                    <a href="{{ route('prices') }}" class="block py-2 px-3 rounded md:p-0 {{ request()->routeIs('prices') ? 'text-white font-bold' : 'text-gray-200 hover:text-white' }} text-gray-200 hover:text-white">Pricing</a>
                 </li>
                 <li>
-                    <a href="#" class="block py-2 px-3 rounded md:p-0 text-gray-200 hover:text-white">Contact</a>
+                    <a href="{{ route('contact') }}" class="block py-2 px-3 rounded md:p-0 {{ request()->routeIs('contact') ? 'text-white font-bold' : 'text-gray-200 hover:text-white' }} text-gray-200 hover:text-white">Contact</a>
                 </li>
             </ul>
         </div>

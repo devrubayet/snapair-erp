@@ -33,13 +33,13 @@
                         class="block py-2 px-3 rounded md:p-0 <?php echo e(request()->routeIs('about') ? 'text-white font-bold' : 'text-gray-200 hover:text-white'); ?>">About</a>
                 </li>
                 <li>
-                    <a href="#" class="block py-2 px-3 rounded md:p-0 text-gray-200 hover:text-white">Services</a>
+                    <a href="<?php echo e(route('services')); ?>" class="block py-2 px-3 rounded md:p-0 <?php echo e(request()->routeIs('services') ? 'text-white font-bold' : 'text-gray-200 hover:text-white'); ?> text-gray-200 hover:text-white">Services</a>
                 </li>
                 <li>
-                    <a href="#" class="block py-2 px-3 rounded md:p-0 text-gray-200 hover:text-white">Pricing</a>
+                    <a href="<?php echo e(route('prices')); ?>" class="block py-2 px-3 rounded md:p-0 <?php echo e(request()->routeIs('prices') ? 'text-white font-bold' : 'text-gray-200 hover:text-white'); ?> text-gray-200 hover:text-white">Pricing</a>
                 </li>
                 <li>
-                    <a href="#" class="block py-2 px-3 rounded md:p-0 text-gray-200 hover:text-white">Contact</a>
+                    <a href="<?php echo e(route('contact')); ?>" class="block py-2 px-3 rounded md:p-0 <?php echo e(request()->routeIs('contact') ? 'text-white font-bold' : 'text-gray-200 hover:text-white'); ?> text-gray-200 hover:text-white">Contact</a>
                 </li>
             </ul>
         </div>
