@@ -46,4 +46,8 @@ class HomeController extends Controller
             'message' => 'No booking found with this reference number.'
         ], 404);
     }
+
+    public function about(){
+        return view('pages.about');
+    }
 }

@@ -1,5 +1,5 @@
-<section>
-    <footer class="relative text-gray-800 bg-gray-50">
+<section class=" bottom-0   mx-auto">
+    <footer class="relative text-gray-800  bg-gray-50">
         <!-- Background Pattern -->
         <div style="background-image: url('<?php echo e(asset('img/bg1.png')); ?>');"
             class="absolute hidden inset-0 bg-no-repeat bg-cover bg-bottom opacity-10 pointer-events-none"></div>

@@ -27,7 +27,7 @@
                         aria-current="page">Home</a>
                 </li>
                 <li>
-                    <a href="/"
+                    <a href="{{ route('about') }}"
                         class="block py-2 px-3 rounded md:bg-transparent md:p-0 {{ request()->routeIs('about') ? 'text-white font-bold bg-red-800 md:bg-transparent' : 'text-gray-200 hover:bg-red-800 md:hover:bg-transparent md:hover:text-white' }}">About</a>
                 </li>
                 <li>
