@@ -2,7 +2,7 @@
     <footer class="relative text-gray-800  bg-gray-50">
         <!-- Background Pattern -->
         <div style="background-image: url('{{ asset('img/header-pattern.svg') }}');"
-            class="absolute hidden inset-0 bg-no-repeat bg-cover bg-bottom opacity-60 pointer-events-none"></div>
+            class="absolute inset-0 bg-no-repeat bg-cover bg-bottom opacity-60 pointer-events-none"></div>
 
         <!-- Overlay -->
         <div class="absolute inset-0 bg-linear-to-b from-transparent to-[rgb(255,37,37)]"></div>
