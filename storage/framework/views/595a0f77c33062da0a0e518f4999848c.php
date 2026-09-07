@@ -5,7 +5,7 @@
             class="absolute inset-0 bg-no-repeat bg-cover bg-bottom  pointer-events-none"></div>
 
         <!-- Overlay -->
-        <div class="absolute inset-0 bg-linear-to-b from-transparent to-[rgb(255,37,37)]"></div>
+        <div class="absolute inset-0 bg-linear-to-b from-transparent to-[rgba(255,184,184,0.81)]"></div>
         <!-- Content -->
         <div class="relative max-w-7xl mx-auto px-6 py-16 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 text-sm">
 
