@@ -14,10 +14,14 @@
                 <h3 class="text-red-600 font-semibold mb-4 uppercase tracking-wide">About Us</h3>
                 <ul class="space-y-2">
                     <li><a href="#" class="hover:text-red-600 transition-colors">About SnapAir</a></li>
-                    <li><a href="#" class="hover:text-red-700">Mobile Phone : <?php echo e($settings->phone_primary ?? ''); ?></a></li>
-                    <li><a href="#" class="hover:text-red-700">WhatsApp : <?php echo e($settings->whatsapp_number ?? ''); ?></a></li>
-                    <li><a href="#" class="hover:text-red-700">Phone : <?php echo e($settings->phone_secondary ?? ''); ?></a></li>
-                    <li><a href="#" class="hover:text-red-700">About Address: <?php echo e($settings->address_line ?? ''); ?></a></li>
+                    <li><a href="#" class="hover:text-red-700">Mobile Phone :
+                            <?php echo e($settings->phone_primary ?? ''); ?></a></li>
+                    <li><a href="#" class="hover:text-red-700">WhatsApp :
+                            <?php echo e($settings->whatsapp_number ?? ''); ?></a></li>
+                    <li><a href="#" class="hover:text-red-700">Phone : <?php echo e($settings->phone_secondary ?? ''); ?></a>
+                    </li>
+                    <li><a href="#" class="hover:text-red-700">About Address:
+                            <?php echo e($settings->address_line ?? ''); ?></a></li>
                     <li><span class="text-gray-600">Trade License No: <strong
                                 class="text-gray-800"><?php echo e($settings?->trade_license ?? ''); ?></strong></span></li>
                     <li><span class="text-gray-600">Civil Aviation: <strong
@@ -62,6 +66,15 @@
                 <h3 class="text-red-600 font-semibold mb-4 uppercase tracking-wide">SnapAirBD</h3>
                 <p class="mb-4 text-gray-600">Book and manage flights on the go.</p>
                 <div class="space-y-3">
+                    
+                        <h5 class="  font-semibold text-gray-900 mb-6 ">
+                            Find Us on Map
+                        </h5>
+                        <div class="w-full h-50 rounded-2xl overflow-hidden shadow-inner border border-gray-200">
+                            <iframe class="w-full h-full border-0" src="<?php echo e($settings->google_map_embed); ?>"
+                                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
                     
                 </div>
             </div>
