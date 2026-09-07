@@ -243,8 +243,19 @@
                 container.innerHTML = ''; // Clear loading text
 
                 if (!data || data.length === 0) {
-                    container.innerHTML =
-                        '<p class="text-gray-500 col-span-full text-center py-6">No fares available right now.</p>';
+                    container.innerHTML = `
+                <div class="col-span-full flex flex-col items-center justify-center py-8 text-center w-full">
+                    <lottie-player 
+                        src="{{ asset('img/flight_not_found.json') }}" 
+                        background="transparent" 
+                        speed="1" 
+                        style="width: 250px; height: 250px;" 
+                        loop 
+                        autoplay>
+                    </lottie-player>
+                    <p class="text-gray-500 font-medium -mt-2">No fares available right now.</p>
+                </div>
+            `;
                     return;
                 }
 
@@ -280,38 +291,38 @@
         return `${formattedHours}:${minutes} ${ampm}`;
     }
 
-function createTicketCard(fare) {
-    const airlineName = fare.airline ? (fare.airline.name || 'Airline') : 'Airline';
+    function createTicketCard(fare) {
+        const airlineName = fare.airline ? (fare.airline.name || 'Airline') : 'Airline';
 
-    // Get image path safely
-    const logoPath = fare.airline ? (fare.airline.logo || fare.airline.image || '') : '';
+        // Get image path safely
+        const logoPath = fare.airline ? (fare.airline.logo || fare.airline.image || '') : '';
 
-    // Format storage URL correctly
-    let logoUrl = '';
-    if (logoPath) {
-        const cleanPath = logoPath.startsWith('/') ? logoPath.substring(1) : logoPath;
-        const finalPath = cleanPath.startsWith('storage/') ? cleanPath : `storage/${cleanPath}`;
-        logoUrl = `${BASE_URL}${finalPath}`;
-    }
+        // Format storage URL correctly
+        let logoUrl = '';
+        if (logoPath) {
+            const cleanPath = logoPath.startsWith('/') ? logoPath.substring(1) : logoPath;
+            const finalPath = cleanPath.startsWith('storage/') ? cleanPath : `storage/${cleanPath}`;
+            logoUrl = `${BASE_URL}${finalPath}`;
+        }
 
-    const departureDate = fare.departure_date ?
-        new Date(fare.departure_date).toLocaleDateString('en-GB', {
-            day: '2-digit',
-            month: 'short',
-            year: 'numeric'
-        }) : '';
+        const departureDate = fare.departure_date ?
+            new Date(fare.departure_date).toLocaleDateString('en-GB', {
+                day: '2-digit',
+                month: 'short',
+                year: 'numeric'
+            }) : '';
 
-    const arrivalDate = fare.arrival_date ?
-        new Date(fare.arrival_date).toLocaleDateString('en-GB', {
-            day: '2-digit',
-            month: 'short',
-            year: 'numeric'
-        }) : '';
+        const arrivalDate = fare.arrival_date ?
+            new Date(fare.arrival_date).toLocaleDateString('en-GB', {
+                day: '2-digit',
+                month: 'short',
+                year: 'numeric'
+            }) : '';
 
-    const departureTimeFormatted = formatTime(fare.departure_time);
-    const arrivalTimeFormatted = formatTime(fare.arrival_time);
+        const departureTimeFormatted = formatTime(fare.departure_time);
+        const arrivalTimeFormatted = formatTime(fare.arrival_time);
 
-    return `
+        return `
     <div class="w-full flex justify-center p-2 [perspective:1000px]">
         <!-- Main Card Container -->
         <div class="group relative min-h-[160px] h-auto w-full max-w-[420px] sm:max-w-[480px] flex text-[#2d2d2d] bg-white rounded-2xl transition-all duration-300 ease-[cubic-bezier(0.175,0.885,0.32,1.25)] z-10 overflow-hidden box-border hover:-translate-y-2.5 [animation:animation-card_10s_infinite] hover:[animation-play-state:paused]">
@@ -474,5 +485,5 @@ function createTicketCard(fare) {
             </div>
         </div>
     </div>`;
-}
+    }
 </script>
