@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\SiteInfo;
 use Filament\Forms\Components\FileUpload;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -28,8 +29,11 @@ class AppServiceProvider extends ServiceProvider
         $settings = SiteInfo::first() ?? new SiteInfo();
         $view->with('settings', $settings);
     });
+    URL::forceRootUrl(config('app.url'));
     FileUpload::configureUsing(function (FileUpload $component): void {
-        $component->disk('public')->visibility('public');
+        $component
+            ->disk('public')
+            ->visibility('public');
     });
     }
 }
