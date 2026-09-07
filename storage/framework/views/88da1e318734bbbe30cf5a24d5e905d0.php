@@ -1,6 +1,6 @@
-@extends('layouts.frontend.layouts')
 
-@section('content')
+
+<?php $__env->startSection('content'); ?>
  <!-- Hero Section -->
     <section class="relative bg-red-900 py-10 md:py-20 text-white text-center">
         <div class=" text-center mb-3">
@@ -26,7 +26,7 @@
 
             <!-- Services Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                @foreach ($services as $service)
+                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php \Livewire\Features\SupportCompiledWireKeys\SupportCompiledWireKeys::openLoop(); ?><?php endif; ?><?php $__currentLoopData = $services; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $service): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><?php \Livewire\Features\SupportCompiledWireKeys\SupportCompiledWireKeys::startLoopIteration(); ?><?php endif; ?>
                     <div
                         class="bg-white/60 border border-slate-700/60 rounded-2xl p-6 sm:p-8 hover:border-red-600/60 hover:bg-red-950/80 hover:shadow-xl hover:shadow-red-900/20 transition-all duration-300 group flex flex-col justify-between">
                         <div>
@@ -35,18 +35,20 @@
                                 class="w-14 h-14 bg-red-400/60 rounded-xl border border-red-700/50 flex items-center justify-center text-red-500 group-hover:bg-red-600 group-hover:text-white transition-colors duration-300 mb-6">
                                 <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="{{ $service['icon'] }}"></path>
+                                        d="<?php echo e($service['icon']); ?>"></path>
                                 </svg>
                             </div>
 
                             <!-- Title -->
                             <h3 class="text-xl font-bold text-red-950 mb-3 group-hover:text-gray-100 transition-colors">
-                                {{ $service['title'] }}
+                                <?php echo e($service['title']); ?>
+
                             </h3>
 
                             <!-- Description -->
                             <p class="text-red-500 group-hover:text-amber-50 text-sm leading-relaxed mb-6">
-                                {{ $service['description'] }}
+                                <?php echo e($service['description']); ?>
+
                             </p>
                         </div>
 
@@ -63,7 +65,7 @@
                             </a>
                         </div>
                     </div>
-                @endforeach
+                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><?php \Livewire\Features\SupportCompiledWireKeys\SupportCompiledWireKeys::endLoop(); ?><?php endif; ?><?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php \Livewire\Features\SupportCompiledWireKeys\SupportCompiledWireKeys::closeLoop(); ?><?php endif; ?>
             </div>
 
             <!-- Call to Action Section -->
@@ -76,7 +78,7 @@
                     Get in touch with our team of experts to tailor a personalized service plan that fits your exact
                     requirements.
                 </p>
-                <a href="{{ route('contact') }}"
+                <a href="<?php echo e(route('contact')); ?>"
                     class="inline-flex items-center justify-center px-8 py-3.5 bg-white text-red-900 font-bold rounded-xl shadow-lg hover:bg-slate-100 transition-all duration-300 transform hover:-translate-y-0.5">
                     Contact Us Now
                 </a>
@@ -86,5 +88,28 @@
 
         </div>
     </section>
-     <x-frontend.ticket-and-visa-search/>
-@endsection
+     <?php if (isset($component)) { $__componentOriginalb41086560f0021b32a1fc027e4adbd66 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginalb41086560f0021b32a1fc027e4adbd66 = $attributes; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.frontend.ticket-and-visa-search','data' => []] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component->withName('frontend.ticket-and-visa-search'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
+<?php $attributes = $attributes->except(\Illuminate\View\AnonymousComponent::ignoredParameterNames()); ?>
+<?php endif; ?>
+<?php $component->withAttributes([]); ?>
+<?php \Livewire\Features\SupportCompiledWireKeys\SupportCompiledWireKeys::processComponentKey($component); ?>
+
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginalb41086560f0021b32a1fc027e4adbd66)): ?>
+<?php $attributes = $__attributesOriginalb41086560f0021b32a1fc027e4adbd66; ?>
+<?php unset($__attributesOriginalb41086560f0021b32a1fc027e4adbd66); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginalb41086560f0021b32a1fc027e4adbd66)): ?>
+<?php $component = $__componentOriginalb41086560f0021b32a1fc027e4adbd66; ?>
+<?php unset($__componentOriginalb41086560f0021b32a1fc027e4adbd66); ?>
+<?php endif; ?>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.frontend.layouts', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\Users\rubay\Desktop\travel-erp\travel-erp\resources\views/pages/services.blade.php ENDPATH**/ ?>
