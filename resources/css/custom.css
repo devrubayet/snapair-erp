@@ -72,3 +72,26 @@
   border: 1px solid #1E73BE; /* outer ring color */
   opacity: 0.5;   /* soft look */
 }
+
+
+@keyframes animation-card {
+  0%, 100% { transform: translateZ(0px); }
+  25% { transform: translateX(-4px) rotateY(-8deg); }
+  75% { transform: translateX(4px) rotateY(8deg); }
+}
+
+@keyframes light-card {
+  25% { transform: translateX(500px) scale(1.5) rotate(25deg); }
+  50% { transform: translateX(-100px) scale(1.5) rotate(25deg); }
+}
+
+@keyframes shadow-card {
+  35% { transform: translateX(250px) scale(1.5); }
+  75% { transform: translateX(0px) scale(1.5); }
+}
+
+@keyframes color-card {
+  0%, 40%, 100% { background-color: #ffbd44; }
+  10%, 35%, 50%, 85% { background-color: #fb6902; }
+  15%, 25%, 55%, 75% { background-color: #ff4141; }
+}

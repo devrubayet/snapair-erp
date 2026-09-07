@@ -155,6 +155,8 @@
         </section>
     @endif
 
+    <x-frontend.ticket-and-visa-search/>
+
     <!-- airlines list -->
     <section class="airlines bg-red-100 py-24">
         <div class="max-w-7xl mx-auto px-4">

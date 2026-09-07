@@ -175,6 +175,29 @@
         </section>
     <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
 
+    <?php if (isset($component)) { $__componentOriginalb41086560f0021b32a1fc027e4adbd66 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginalb41086560f0021b32a1fc027e4adbd66 = $attributes; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.frontend.ticket-and-visa-search','data' => []] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component->withName('frontend.ticket-and-visa-search'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
+<?php $attributes = $attributes->except(\Illuminate\View\AnonymousComponent::ignoredParameterNames()); ?>
+<?php endif; ?>
+<?php $component->withAttributes([]); ?>
+<?php \Livewire\Features\SupportCompiledWireKeys\SupportCompiledWireKeys::processComponentKey($component); ?>
+
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginalb41086560f0021b32a1fc027e4adbd66)): ?>
+<?php $attributes = $__attributesOriginalb41086560f0021b32a1fc027e4adbd66; ?>
+<?php unset($__attributesOriginalb41086560f0021b32a1fc027e4adbd66); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginalb41086560f0021b32a1fc027e4adbd66)): ?>
+<?php $component = $__componentOriginalb41086560f0021b32a1fc027e4adbd66; ?>
+<?php unset($__componentOriginalb41086560f0021b32a1fc027e4adbd66); ?>
+<?php endif; ?>
+
     <!-- airlines list -->
     <section class="airlines bg-red-100 py-24">
         <div class="max-w-7xl mx-auto px-4">
