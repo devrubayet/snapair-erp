@@ -36,7 +36,6 @@ class ExclusiveOfferResource extends Resource
 
                 Forms\Components\FileUpload::make('img')
                     ->image()
-                    ->disk('public') // <--- Eta add korun
                     ->directory('exclusive')
                     ->required()
                     ->maxSize(4096),
@@ -79,7 +78,7 @@ class ExclusiveOfferResource extends Resource
             ->bulkActions([
                 BulkActionGroup::make([
                     DeleteBulkAction::make(),
-
+                    
                 ]),
             ]);
     }
