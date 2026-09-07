@@ -226,52 +226,56 @@
     });
 
     function fetchFares() {
-        fetch("<?php echo e(route('xclusive.fares')); ?>", {
-                headers: {
-                    "X-Requested-With": "XMLHttpRequest",
-                    "Accept": "application/json"
-                }
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                const container = document.getElementById('fares-container');
-                container.innerHTML = ''; // Clear loading text
+    fetch("<?php echo e(route('xclusive.fares')); ?>", {
+        headers: {
+            "X-Requested-With": "XMLHttpRequest",
+            "Accept": "application/json"
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        const container = document.getElementById('fares-container');
+        container.innerHTML = ''; // Clear loading text
 
-                if (!data || data.length === 0) {
-                    container.innerHTML = `
+        if (!data || data.length === 0) {
+            // ১. ফাঁকা পাত্রের HTML তৈরি
+            container.innerHTML = `
                 <div class="col-span-full flex flex-col items-center justify-center py-8 text-center w-full">
-                    <lottie-player 
-                        src="<?php echo e(asset('img/flight_not_found.json')); ?>" 
-                        background="transparent" 
-                        speed="1" 
-                        style="width: 250px; height: 250px;" 
-                        loop 
-                        autoplay>
-                    </lottie-player>
+                    <div id="no-data-lottie" style="width: 250px; height: 250px;"></div>
                     <p class="text-gray-500 font-medium -mt-2">No fares available right now.</p>
                 </div>
             `;
-                    return;
-                }
 
-                let cardsHTML = '';
-                data.forEach(fare => {
-                    cardsHTML += createTicketCard(fare);
-                });
-
-                container.innerHTML = cardsHTML;
-            })
-            .catch(error => {
-                console.error('Error fetching fares:', error);
-                document.getElementById('fares-container').innerHTML =
-                    '<p class="text-red-500 col-span-full text-center py-6">Failed to load fares. Please try again later.</p>';
+            // ২. lottie.min.js দিয়ে অ্যানিমেশন রান করা
+            lottie.loadAnimation({
+                container: document.getElementById('no-data-lottie'), // যে div এ অ্যানিমেশন দেখাবে
+                renderer: 'svg',
+                loop: true,
+                autoplay: true,
+                path: "<?php echo e(asset('img/flight_not_found.json')); ?>" // আপনার JSON ফাইলের পাথ
             });
-    }
+
+            return;
+        }
+
+        let cardsHTML = '';
+        data.forEach(fare => {
+            cardsHTML += createTicketCard(fare);
+        });
+
+        container.innerHTML = cardsHTML;
+    })
+    .catch(error => {
+        console.error('Error fetching fares:', error);
+        document.getElementById('fares-container').innerHTML =
+            '<p class="text-red-500 col-span-full text-center py-6">Failed to load fares. Please try again later.</p>';
+    });
+}
 
     function formatTime(timeString) {
         if (!timeString) return '';
