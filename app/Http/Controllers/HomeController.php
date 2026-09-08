@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Airline;
 use App\Models\Booking;
 use App\Models\ExclusiveOffer;
+use App\Models\Team;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
 
@@ -48,7 +49,15 @@ class HomeController extends Controller
     }
 
     public function about(){
-        return view('pages.about');
+      
+
+    
+    $teams = Team::where('is_active', true)
+                 ->orderBy('sort_order', 'asc')
+                 ->get();
+
+    
+        return view('pages.about',compact('teams'));
     }
 
     public function services()

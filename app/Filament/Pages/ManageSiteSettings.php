@@ -13,6 +13,7 @@ use Filament\Notifications\Notification;
 use BackedEnum;
 use Filament\Schemas\Components\Tabs;
 use Filament\Schemas\Components\Tabs\Tab;
+use UnitEnum;
 
 class ManageSiteSettings extends Page implements HasForms
 {
@@ -21,6 +22,7 @@ class ManageSiteSettings extends Page implements HasForms
     protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-cog-6-tooth';
 
     protected static ?string $navigationLabel = 'Site Settings';
+    protected static UnitEnum|string|null $navigationGroup = 'Site Settings';
 
     protected string $view = 'filament.pages.manage-site-settings';
 

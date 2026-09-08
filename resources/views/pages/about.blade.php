@@ -1,12 +1,12 @@
 @extends('layouts.frontend.layouts')
 
 @section('content')
-    <section class="relative overflow-hidden  py-20 lg:py-28">
+    <section class="relative overflow-hidden py-20 lg:py-28">
         {{-- Background decoration --}}
         <div class="absolute -top-40 -right-40 h-96 w-96 rounded-full bg-red-600/20 blur-3xl"></div>
         <div class="absolute -bottom-40 -left-40 h-96 w-96 rounded-full bg-blue-600/10 blur-3xl"></div>
 
-        <div class="relative bg-red-400 rounded-3xl mx-auto max-w-7xl px-6 py-6 lg:px-8">
+        <div class="relative bg-red-800/88 rounded-3xl mx-auto max-w-7xl px-6 py-8 lg:px-8 shadow-2xl border border-white/10">
 
             {{-- Header --}}
             <div class="mb-12 max-w-3xl">
@@ -19,13 +19,13 @@
                     {{ $settings?->site_name ?? 'Your Company' }}
                 </h1>
 
-                <p class="mt-3 text-lg leading-8 text-slate-200">
+                <p class="mt-3 text-lg leading-8 text-slate-300">
                     {{ $settings?->site_tagline ?? '' }}
                 </p>
 
                 @if ($settings?->tagline_travel)
                     <div
-                        class="mt-5 inline-flex rounded-full bg-red-600/50 px-5 py-3 text-sm font-medium text-slate-200 ring-1 ring-inset ring-red-500/20">
+                        class="mt-5 inline-flex rounded-3xl bg-red-950/60 px-4 py-3 text-sm font-medium text-white ring-1 ring-inset ring-red-950/30">
                         {{ $settings->tagline_travel }}
                     </div>
                 @endif
@@ -35,7 +35,7 @@
             <div class="grid gap-6 lg:grid-cols-3">
 
                 {{-- Contact Information --}}
-                <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur">
+                <div class="rounded-2xl border border-white/10 bg-white/[0.2] p-7 backdrop-blur">
                     <div class="mb-6 flex items-center gap-3">
                         <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-red-600 text-white">
                             <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -53,11 +53,11 @@
 
                         @if ($settings?->phone_primary)
                             <div>
-                                <p class="text-xs font-medium uppercase tracking-wider text-slate-300">
+                                <p class="text-xs font-medium uppercase tracking-wider text-slate-400">
                                     Primary Phone
                                 </p>
                                 <a href="tel:{{ $settings->phone_primary }}"
-                                    class="mt-1 block text-base font-medium text-white hover:text-red-400">
+                                    class="mt-1 block text-base font-medium text-white hover:text-red-400 transition">
                                     {{ $settings->phone_primary }}
                                 </a>
                             </div>
@@ -65,11 +65,11 @@
 
                         @if ($settings?->phone_secondary)
                             <div>
-                                <p class="text-xs font-medium uppercase tracking-wider text-slate-300">
+                                <p class="text-xs font-medium uppercase tracking-wider text-slate-400">
                                     Secondary Phone
                                 </p>
                                 <a href="tel:{{ $settings->phone_secondary }}"
-                                    class="mt-1 block text-base font-medium text-white hover:text-red-400">
+                                    class="mt-1 block text-base font-medium text-white hover:text-red-400 transition">
                                     {{ $settings->phone_secondary }}
                                 </a>
                             </div>
@@ -77,12 +77,12 @@
 
                         @if ($settings?->whatsapp_number)
                             <div>
-                                <p class="text-xs font-medium uppercase tracking-wider text-slate-300">
+                                <p class="text-xs font-medium uppercase tracking-wider text-slate-400">
                                     WhatsApp
                                 </p>
                                 <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $settings->whatsapp_number) }}"
                                     target="_blank"
-                                    class="mt-1 block text-base font-medium text-green-400 hover:text-green-300">
+                                    class="mt-1 block text-base font-medium text-green-400 hover:text-green-300 transition">
                                     {{ $settings->whatsapp_number }}
                                 </a>
                             </div>
@@ -90,11 +90,11 @@
 
                         @if ($settings?->email)
                             <div>
-                                <p class="text-xs font-medium uppercase tracking-wider text-slate-300">
+                                <p class="text-xs font-medium uppercase tracking-wider text-slate-400">
                                     Email
                                 </p>
                                 <a href="mailto:{{ $settings->email }}"
-                                    class="mt-1 block break-all text-base font-medium text-white hover:text-red-400">
+                                    class="mt-1 block break-all text-base font-medium text-white hover:text-red-400 transition">
                                     {{ $settings->email }}
                                 </a>
                             </div>
@@ -102,11 +102,11 @@
 
                         @if ($settings?->support_email)
                             <div>
-                                <p class="text-xs font-medium uppercase tracking-wider text-slate-300">
+                                <p class="text-xs font-medium uppercase tracking-wider text-slate-400">
                                     Support Email
                                 </p>
                                 <a href="mailto:{{ $settings->support_email }}"
-                                    class="mt-1 block break-all text-base font-medium text-white hover:text-red-400">
+                                    class="mt-1 block break-all text-base font-medium text-white hover:text-red-400 transition">
                                     {{ $settings->support_email }}
                                 </a>
                             </div>
@@ -117,7 +117,7 @@
 
 
                 {{-- Address --}}
-                <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur">
+                <div class="rounded-2xl border border-white/10 bg-white/[0.2] p-7 backdrop-blur">
                     <div class="mb-6 flex items-center gap-3">
                         <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-600 text-white">
                             <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -136,10 +136,10 @@
 
                         @if ($settings?->address_line)
                             <div>
-                                <p class="text-xs font-medium uppercase tracking-wider text-slate-300">
+                                <p class="text-xs font-medium uppercase tracking-wider text-slate-400">
                                     Address
                                 </p>
-                                <p class="mt-2 leading-7 text-slate-100">
+                                <p class="mt-2 leading-7 text-slate-200">
                                     {{ $settings->address_line }}
                                 </p>
                             </div>
@@ -149,7 +149,7 @@
 
                             @if ($settings?->city)
                                 <div>
-                                    <p class="text-xs font-medium uppercase tracking-wider text-slate-300">
+                                    <p class="text-xs font-medium uppercase tracking-wider text-slate-400">
                                         City
                                     </p>
                                     <p class="mt-1 text-white">
@@ -160,7 +160,7 @@
 
                             @if ($settings?->country)
                                 <div>
-                                    <p class="text-xs font-medium uppercase tracking-wider text-slate-300">
+                                    <p class="text-xs font-medium uppercase tracking-wider text-slate-400">
                                         Country
                                     </p>
                                     <p class="mt-1 text-white">
@@ -173,7 +173,7 @@
 
                         {{-- Travel identity --}}
                         <div class="mt-6 border-t border-white/10 pt-6">
-                            <h3 class="mb-4 text-sm font-semibold uppercase tracking-wider text-slate-300">
+                            <h3 class="mb-4 text-sm font-semibold uppercase tracking-wider text-slate-400">
                                 Travel Credentials
                             </h3>
 
@@ -214,7 +214,7 @@
 
 
                 {{-- About --}}
-                <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur">
+                <div class="rounded-2xl border border-white/10 bg-white/[0.2] p-7 backdrop-blur">
 
                     <div class="mb-6 flex items-center gap-3">
                         <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-amber-500 text-white">
@@ -230,13 +230,13 @@
                     </div>
 
                     @if ($settings?->about_short)
-                        <div class="text-sm leading-7 text-slate-100">
-                            {!! $settings->short !!}
+                        <div class="text-sm leading-7 text-slate-200">
+                            {!! $settings->about_short !!}
                         </div>
                     @endif
 
                     @if ($settings?->about_full)
-                        <div class="text-sm leading-7 text-slate-100">
+                        <div class="mt-4 text-sm leading-7 text-slate-200">
                             {!! $settings->about_full !!}
                         </div>
                     @endif
@@ -245,9 +245,78 @@
 
             </div>
 
+            {{-- Team / Leadership Section --}}
+            <div class="mt-16 border-t border-white/10 pt-12">
+                <div class="mb-10 text-center max-w-2xl mx-auto">
+                    <h2 class="text-2xl font-bold tracking-tight text-white sm:text-3xl">
+                        Meet Our Teams
+                    </h2>
+                    <p class="mt-2 text-sm text-slate-400">
+                        The dedicated professionals driving our vision forward.
+                    </p>
+                </div>
+
+                <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                    @if (isset($teams) && $teams->count() > 0)
+                        @foreach ($teams as $member)
+                            <div class="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.09] p-6 text-center backdrop-blur transition hover:-translate-y-1 hover:border-red-500/50">
+                                <div class="mx-auto h-28 w-28 overflow-hidden rounded-full border-2 border-red-500/30 p-1">
+                                    <img src="{{ $member->image ? asset('storage/' . $member->image) : 'https://ui-avatars.com/api/?name=' . urlencode($member->name) . '&background=0D8ABC&color=fff' }}" alt="{{ $member->name }}"
+                                        class="h-full w-full rounded-full object-cover transition duration-300 group-hover:scale-105" />
+                                </div>
+                                <h3 class="mt-4 text-lg font-semibold text-white">{{ $member->name }}</h3>
+                                <p class="text-xs font-medium text-red-400">{{ $member->designation }}</p>
+                                @if($member->bio)
+                                    <p class="mt-3 text-xs leading-5 text-slate-300 line-clamp-3">
+                                        {{ $member->bio }}
+                                    </p>
+                                @endif
+                            </div>
+                        @endforeach
+                    @else
+                        {{-- Fallback Static Cards (যদি ডাটাবেস থেকে ডাইনামিক ডেটা পাস না থাকে) --}}
+                        <div class="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] p-6 text-center backdrop-blur transition hover:-translate-y-1 hover:border-red-500/50">
+                            <div class="mx-auto h-28 w-28 overflow-hidden rounded-full border-2 border-red-500/30 p-1">
+                                <img src="https://ui-avatars.com/api/?name=Managing+Director&background=ef4444&color=fff" alt="Managing Director"
+                                    class="h-full w-full rounded-full object-cover transition duration-300 group-hover:scale-105" />
+                            </div>
+                            <h3 class="mt-4 text-lg font-semibold text-white">Managing Director</h3>
+                            <p class="text-xs font-medium text-red-400">Executive Leadership</p>
+                            <p class="mt-3 text-xs leading-5 text-slate-300">
+                                Leading the company with vision, excellence, and strategic expansion across global markets.
+                            </p>
+                        </div>
+
+                        <div class="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] p-6 text-center backdrop-blur transition hover:-translate-y-1 hover:border-red-500/50">
+                            <div class="mx-auto h-28 w-28 overflow-hidden rounded-full border-2 border-red-500/30 p-1">
+                                <img src="https://ui-avatars.com/api/?name=General+Manager&background=2563eb&color=fff" alt="General Manager"
+                                    class="h-full w-full rounded-full object-cover transition duration-300 group-hover:scale-105" />
+                            </div>
+                            <h3 class="mt-4 text-lg font-semibold text-white">General Manager</h3>
+                            <p class="text-xs font-medium text-blue-400">Operations Head</p>
+                            <p class="mt-3 text-xs leading-5 text-slate-300">
+                                Overseeing daily operations, client satisfaction, and maintaining service quality.
+                            </p>
+                        </div>
+
+                        <div class="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] p-6 text-center backdrop-blur transition hover:-translate-y-1 hover:border-red-500/50">
+                            <div class="mx-auto h-28 w-28 overflow-hidden rounded-full border-2 border-red-500/30 p-1">
+                                <img src="https://ui-avatars.com/api/?name=Head+of+Operations&background=f59e0b&color=fff" alt="Head of Operations"
+                                    class="h-full w-full rounded-full object-cover transition duration-300 group-hover:scale-105" />
+                            </div>
+                            <h3 class="mt-4 text-lg font-semibold text-white">Head of Operations</h3>
+                            <p class="text-xs font-medium text-amber-400">Logistics & Strategy</p>
+                            <p class="mt-3 text-xs leading-5 text-slate-300">
+                                Managing end-to-end execution and seamless service deliveries for all clients.
+                            </p>
+                        </div>
+                    @endif
+                </div>
+            </div>
+
             {{-- Bottom CTA --}}
             <div
-                class="mt-8 overflow-hidden rounded-2xl bg-gradient-to-r from-red-600 to-red-500 p-8 shadow-2xl shadow-red-600/20">
+                class="mt-12 overflow-hidden rounded-2xl bg-gradient-to-r from-red-600 to-red-500 p-8 shadow-2xl shadow-red-600/20">
                 <div class="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
 
                     <div>
