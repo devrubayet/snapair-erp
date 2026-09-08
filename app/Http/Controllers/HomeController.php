@@ -56,7 +56,8 @@ class HomeController extends Controller
                  ->orderBy('sort_order', 'asc')
                  ->get();
 
-    
+
+                 
         return view('pages.about',compact('teams'));
     }
 

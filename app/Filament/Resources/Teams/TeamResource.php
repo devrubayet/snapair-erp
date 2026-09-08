@@ -92,6 +92,7 @@ class TeamResource extends Resource
                     ->sortable()
                     ->weight('bold'),
 
+                    
                 Tables\Columns\TextColumn::make('designation')
                     ->searchable()
                     ->badge()

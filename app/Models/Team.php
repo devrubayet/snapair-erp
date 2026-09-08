@@ -13,6 +13,7 @@ class Team extends Model
         'bio',
         'sort_order',
         'is_active',
+        
     ];
 
     protected $casts = [
