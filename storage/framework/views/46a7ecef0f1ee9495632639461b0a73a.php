@@ -156,7 +156,7 @@
         // Transition শেষ হলে DOM থেকে সরাতে চাইলে:
         setTimeout(() => {
             preloader.classList.add('hidden');
-        }, 500); 
+        }, 30000); 
     });
 </script>
 </body>
